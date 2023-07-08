@@ -30,9 +30,6 @@
     "gulp-uglify-es": "^3.0.0",
     "gulp-webp": "^4.0.1",
     "sass": "^1.63.6",
-    "swiper": "^10.0.4"
-  },
-  "dependencies": {
     "tailwindcss": "^3.3.2"
   }
 }
