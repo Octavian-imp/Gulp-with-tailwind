@@ -14,7 +14,7 @@ const ttf2woff2 = require("gulp-ttf2woff2");
 const fonter = require("gulp-fonter");
 //utils
 const uglify = require("gulp-uglify-es").default;
-const include = require("gulp-include");
+const include = require("gulp-file-include");
 const concat = require("gulp-concat");
 const clean = require("gulp-clean");
 //server & cache
@@ -24,11 +24,7 @@ const browserSync = require("browser-sync").create();
 //include files
 function pages() {
   return src("app/pages/*.html")
-    .pipe(
-      include({
-        includePaths: "app/components",
-      })
-    )
+    .pipe(include())
     .pipe(dest("app"))
     .pipe(browserSync.stream());
 }
