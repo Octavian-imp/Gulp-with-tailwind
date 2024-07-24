@@ -17,7 +17,7 @@ const fonter = require("gulp-fonter");
 const uglify = require("gulp-uglify-es").default;
 const include = require("gulp-file-include");
 const concat = require("gulp-concat");
-const clean = require("gulp-clean");
+const del = require("del");
 //server & cache
 const newer = require("gulp-newer");
 const browserSync = require("browser-sync").create();
@@ -121,10 +121,8 @@ function build() {
   return src(
     [
       "app/minify/css/style.min.css",
-      "app/minify/js/**/*.min.js",
+      "app/minify/js/main.min.js",
       "app/assets/images/dist/*.*",
-      "!app/assets/images/dist/*.svg",
-      "app/assets/images/dist/sprite.svg",
       "app/assets/fonts/dist/*.*",
       "app/*.html",
     ],
@@ -135,7 +133,7 @@ function build() {
 }
 
 function cleanBuild() {
-  return src("build").pipe(clean());
+  return del(["build/*"]);
 }
 
 exports.styles = styles;
